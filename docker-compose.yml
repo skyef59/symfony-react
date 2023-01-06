@@ -1,0 +1,43 @@
+version: "3.8"
+services:
+
+    db:
+        image: mysql
+        container_name: db_docker
+        ports:
+            - "3307:3306"
+        restart: always
+        volumes:
+            - db-data:/var/lib/mysql
+        environment:
+            MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+        networks:
+            - dev
+
+    back:
+        build: back
+        container_name: symfony_docker
+        ports:
+            - "8080:80"
+        volumes:
+            - ./back/vhosts:/etc/apache2/sites-enabled
+            - ./back:/var/www
+        restart: always
+        networks:
+            - dev
+
+    front:
+        build: front
+        container_name: react_docker
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./front:/app
+        networks:
+            - dev
+
+networks:
+    dev:
+
+volumes:
+    db-data:

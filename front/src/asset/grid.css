@@ -1,0 +1,23 @@
+.snake {
+    margin: 0 auto;
+    margin-top: 10px;
+}
+.snake-row {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+.snake-box {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid black;
+}
+.colored {
+    background-color: blue;
+}
+.apple {
+    background-color: red;
+}

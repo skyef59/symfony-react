@@ -1,0 +1,14 @@
+api_platform:
+    title: 'Symfony REST API'
+    description: 'A Symfony API to manage a simple blog app.'
+    metadata_backward_compatibility_layer: false
+    version: '1.0.0'
+    mapping:
+        paths: ['%kernel.project_dir%/src/Entity']
+    patch_formats:
+       json: ['application/merge-patch+json']
+    swagger:
+        api_keys:
+             JWT:
+                name: Authorization
+                type: header
